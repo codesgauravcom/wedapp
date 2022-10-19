@@ -1,0 +1,62 @@
+<div class="container-fluid">
+    <div class="card">
+      <div class="card-body">
+        <form  #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm) " >
+          
+          <div class="row col-md-12">
+            <div class="form-group col-md-10">
+              <label for="" class="col-form-label">First Name</label>
+              <input type="text" name="firstName" id=""  pattern ="^[A-Za-z]*$" required ngModel #fname="ngModel" class="form-control">
+              <div *ngIf="fname.touched && !fname.valid">
+                <div *ngIf="fname.errors?.['required']" class="text-danger">
+                  First Name is required
+                </div>
+                <div *ngIf="fname.errors?.['pattern']" class="text-danger">
+                  Only Alphabates are required
+                </div>
+              </div>
+            </div>
+            <div class="col-md-10 form-group">
+              <label for="" class="col-form-label">Last Name</label>
+              <input type="text" name="lastName" id=""  pattern ="^[A-Za-z]*$" required  ngModel #lName="ngModel" class="form-control">
+              <div *ngIf="lName.touched && !lName.valid">
+                <div *ngIf="lName.errors?.['required']" class="text-danger">
+                  Last Name is required
+                </div>
+                <div *ngIf="lName.errors?.['pattern']" class="text-danger">
+                  Only Alphabates are required
+                </div>
+              </div>
+            </div>
+            <div class="col-md-10 form-group">
+              <label for="" class="col-form-label">Contact Number</label>
+              <input type="text" name="contact" id=""  pattern="^((\\+91-?|0)?[0-9]{10})" required  ngModel #phone="ngModel" class="form-control">
+              <div *ngIf="phone.touched && !phone.valid">
+                <div *ngIf="phone.errors?.['required']" class="text-danger">
+                  Phone Number is required
+                </div>
+                <div *ngIf="phone.errors?.['pattern']" class="text-danger">
+                  Only numbers are required and should be 10
+                </div>
+              </div>
+            </div>
+            <div class="col-md-10 form-group">
+              <label for="" class="col-form-label">Email</label>
+              <input type="text" name="email" id=""  required pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"  ngModel #mail="ngModel" class="form-control">
+              <div *ngIf="mail.touched && !mail.valid">
+                <div *ngIf="mail.errors?.['required']" class="text-danger">
+                  Email is required
+                </div>
+                <div *ngIf="mail.errors?.['pattern']" class="text-danger">
+                  @symbol is required
+                </div>
+              </div>
+            </div>
+            <div class="col-md-10 form-group">
+              <button  type="submit" class="btn btn-primary">submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

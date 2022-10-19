@@ -1,0 +1,84 @@
+<div class="container-fluid">
+    <br/>
+    <br/>
+    <br/>
+  
+      <div class="card">
+        <div class="card-body">
+            
+          <form [formGroup]="contactform" >
+            <div class="row col-md-12">
+              <div class="form-group col-md-10">
+              <label class="col-form-label">First Name</label>
+              <input type="text" formControlName="firstname" placeholder="Enter Your First Name"  class="form-control" name="name" />
+              <div *ngIf="contactform.controls['firstname'].invalid && (contactform.controls['firstname'].dirty || contactform.controls['firstname'].touched)" class="alert">
+                <div *ngIf="contactform.controls['firstname'].errors?.['required']"  class="text-danger">
+                  First Name is Required
+               </div>
+               <div *ngIf="contactform.controls['firstname'].errors?.['pattern']"  class="text-danger">
+                First Name required only Alphabets and First Alphabet should be Capital.
+             </div>
+            </div>
+              
+            </div>
+            <div class="form-group col-md-10">
+              <label class="col-form-label">Last Name</label>
+              <input type="text" formControlName="lastname" placeholder="Enter Your Last Name"  required  class="form-control" name="lastname" />
+              <div *ngIf="contactform.controls['lastname'].invalid && (contactform.controls['lastname'].dirty || contactform.controls['lastname'].touched)" class="alert">
+                <div *ngIf="contactform.controls['lastname'].errors?.['required']"  class="text-danger">
+                  Last Name is Required
+               </div>
+               <div *ngIf="contactform.controls['lastname'].errors?.['pattern']"  class="text-danger">
+                Last Name required only Alphabets
+             </div>
+            </div>
+            </div>
+    
+            <div class="form-group col-md-10">
+              <label class="col-form-label">Contact Number</label>
+    <input type="text" formControlName="phone" placeholder="Enter Your Number" class="form-control" required  />
+    <div *ngIf="contactform.controls['phone'].invalid && (contactform.controls['phone'].dirty || contactform.controls['phone'].touched)" class="alert">
+      <div *ngIf="contactform.controls['phone'].errors?.['required']"  class="text-danger">
+      Contact Number is required only Numbers.
+    
+     </div>
+     <div *ngIf="contactform.controls['phone'].errors?.['pattern']"  class="text-danger">
+      Contact Number is Required at least 10 Digits.
+    
+    </div>
+    
+    </div>
+    </div>
+    <div class="form-group col-md-10">
+      <label class="col-form-label">Email</label>
+    <input type="text" formControlName="email" placeholder="Enter Your Email" class="form-control" required  />
+    <div *ngIf="contactform.controls['email'].invalid && (contactform.controls['email'].dirty || contactform.controls['email'].touched)" class="alert">
+    <div *ngIf="contactform.controls['email'].errors?.['required']"  class="text-danger">
+    Email  is Required
+    </div>
+    <div *ngIf="contactform.controls['email'].errors?.['pattern']"  class="text-danger">
+    Invalid Email
+    </div>
+    </div>    
+    </div>
+   
+    
+            <div class="form-group col-md-10">
+              <br/>
+    <button class="btn btn-danger"(click)="submit()">Submit</button>
+            </div>
+    
+            </div>
+    
+          </form>
+    
+        </div>
+    
+      </div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+  
+    </div>
